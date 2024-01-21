@@ -2,20 +2,18 @@ version: '3'
 services:
   django:
     build:
-      context: .
+      context: ./src
       dockerfile: Dockerfile
-    ports:
-      - 8000:8000
     depends_on:
       - db
     volumes:
-      - ./app:/app
+      - ./src:/app
   postgres:
     image: postgres
     environment:
-      POSTGRES_USER: your_username
-      POSTGRES_PASSWORD: your_password
-      POSTGRES_DB: your_database
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 134425
+      POSTGRES_DB: playlist
     volumes:
       - postgress_date:/var/lib/postgresql/data
     ports:
