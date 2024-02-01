@@ -1,29 +1,31 @@
-version: '3'
+version: '3.9'
 services:
   django:
     build:
       context: ./src
       dockerfile: Dockerfile
+    command: bash -c "python manage.py runserver 0.0.0.0:8000"
     depends_on:
-      - db
+      - postgres
     volumes:
       - ./src:/app
   postgres:
     image: postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 134425
-      POSTGRES_DB: playlist
+      - POSTGRES_USER= postgres
+      - POSTGRES_PASSWORD= 134425
+      - POSTGRES_DB= playlist
+      - POSTGRES_POR= 5432
     volumes:
       - postgress_date:/var/lib/postgresql/data
     ports:
       - 5432:5432
   nginx:
-    image: nginx
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
     ports:
       - 80:80
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - django
 
