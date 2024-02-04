@@ -42,8 +42,13 @@ DJANGO_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+LOCAL_APPS = [
+    'song',
+    'album',
+]
+
 OTHER_APPS = []
-LOCAL_APPS = []
 
 
 INSTALLED_APPS = DJANGO_APPS+OTHER_APPS+LOCAL_APPS
