@@ -48,7 +48,9 @@ LOCAL_APPS = [
     'album',
 ]
 
-OTHER_APPS = []
+OTHER_APPS = [
+    
+]
 
 
 INSTALLED_APPS = DJANGO_APPS+OTHER_APPS+LOCAL_APPS
